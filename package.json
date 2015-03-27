@@ -1,5 +1,5 @@
 {
-  "name": "meteor-connector",
+  "name": "meteor-wapi",
   "version": "0.0.1",
   "description": "",
   "main": "src/mc.js",
@@ -17,6 +17,7 @@
     "tcomb-validation": "^1.0.1"
   },
   "devDependencies": {
+    "coveralls": "^2.11.2",
     "istanbul": "^0.3.11",
     "mocha": "^2.2.1",
     "rewire": "^2.3.1",
