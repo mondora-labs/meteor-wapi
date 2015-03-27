@@ -1,9 +1,9 @@
 var R = require("ramda");
 
-var MVError = require("./mv-error.js");
+var MWError = require("./mw-error.js");
 
 module.exports = R.curry(function errorHandler (response, error) {
-    if (R.is(MVError, error)) {
+    if (R.is(MWError, error)) {
         response.status(error.code).send({
             error: error.message
         });

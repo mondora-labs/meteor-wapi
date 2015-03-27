@@ -2,12 +2,22 @@ var R = require("ramda");
 
 var statics = require("./statics.js");
 var methods = require("./methods.js");
+var MWError = require("./lib/mw-error.js");
 
-var MV = function () {
+var MW = function () {
     this._methods = {};
 };
 
-MV = R.merge(MV, statics);
-MV = R.merge(MV, methods);
+// Merge statics
+R.pipe(
+    R.toPairs,
+    R.forEach(R.apply(function (key, val) {
+        MW[key] = val;
+    }))
+)(statics);
+MW.MWError = MWError;
 
-module.exports = MV;
+// Merge methods
+MW.prototype = R.merge(MW.prototype, methods);
+
+module.exports = MW;
