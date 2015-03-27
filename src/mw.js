@@ -3,11 +3,11 @@ var R = require("ramda");
 var statics = require("./statics.js");
 var methods = require("./methods.js");
 
-var MC = function () {
+var MV = function () {
     this._methods = {};
 };
 
-MC = R.merge(MC, statics);
-MC = R.merge(MC, methods);
+MV = R.merge(MV, statics);
+MV = R.merge(MV, methods);
 
-module.exports = MC;
+module.exports = MV;

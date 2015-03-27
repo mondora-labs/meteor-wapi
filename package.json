@@ -1,8 +1,8 @@
 {
   "name": "meteor-wapi",
-  "version": "0.0.1",
-  "description": "",
-  "main": "src/mc.js",
+  "version": "0.1.0",
+  "description": "Node module to allow CQRS-ing with Meteor",
+  "main": "src/mw.js",
   "scripts": {
     "test": "node_modules/.bin/mocha test/**/*.js",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec test/**/*.js"

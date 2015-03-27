@@ -3,7 +3,7 @@ var R        = require("ramda");
 var t        = require("tcomb-validation");
 
 var getUserFromToken = require("./lib/get-user-from-token.js");
-var MCError          = require("./lib/mc-error.js");
+var MVError          = require("./lib/mv-error.js");
 var errorHandler     = require("./lib/error-handler.js");
 
 var statics = {
@@ -19,7 +19,7 @@ var statics = {
         if (validation.isValid()) {
             next();
         } else {
-            errorHandler(res, new MCError(400, validation.firstError()));
+            errorHandler(res, new MVError(400, validation.firstError()));
         }
     },
 
@@ -37,7 +37,7 @@ var statics = {
         getUserFromToken(req.body.loginToken)
             .then(function (user) {
                 if (R.isNil(user)) {
-                    throw new MCError(401, "Invalid accessToken");
+                    throw new MVError(401, "Invalid accessToken");
                 }
                 req.context.userId = user._id;
                 req.context.user = user;
