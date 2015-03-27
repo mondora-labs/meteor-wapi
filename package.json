@@ -1,0 +1,26 @@
+{
+  "name": "meteor-connector",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/mc.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha test/**/*.js",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec test/**/*.js"
+  },
+  "author": "Paolo Scanferla <paolo.scanferla@mondora.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^2.9.15",
+    "mongodb": "^2.0.25",
+    "ramda": "^0.13.0",
+    "tcomb": "^1.0.0",
+    "tcomb-validation": "^1.0.1"
+  },
+  "devDependencies": {
+    "istanbul": "^0.3.11",
+    "mocha": "^2.2.1",
+    "rewire": "^2.3.1",
+    "should": "^5.2.0",
+    "sinon": "^1.14.1"
+  }
+}
