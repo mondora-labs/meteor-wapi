@@ -2,9 +2,9 @@ var R      = require("ramda");
 var should = require("should");
 var sinon  = require("sinon");
 
-var methods = require("../../src/methods.js");
+var methods = require("../../../src/methods.js");
 
-describe("The `methods` method", function () {
+describe("Unit suite - The `methods` method", function () {
 
     it("should register methods", function () {
         var ctx = {

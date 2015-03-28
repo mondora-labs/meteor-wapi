@@ -3,9 +3,9 @@ var R        = require("ramda");
 var should   = require("should");
 var sinon    = require("sinon");
 
-var methods = require("../../src/methods.js");
+var methods = require("../../../src/methods.js");
 
-describe("The `getUserMiddleware` method", function () {
+describe("Unit suite - The `getUserMiddleware` method", function () {
 
     it("should return a function", function () {
         methods.getUserMiddleware().should.be.of.type("function");
@@ -13,7 +13,7 @@ describe("The `getUserMiddleware` method", function () {
 
 });
 
-describe("The function returned by `getUserMiddleware`", function () {
+describe("Unit suite - The function returned by `getUserMiddleware`", function () {
 
     it("should let the request through if it doesn't have a `loginToken`", function () {
         var userMiddleware = methods.getUserMiddleware();

@@ -18,11 +18,11 @@ var resultHandler    = require("./lib/result-handler.js");
 var methods = {
 
     _getUserFromToken: function (loginToken) {
-        var users = this.db.getCollection("users");
+        var users = this.db.collection("users");
         return BPromise.promisify(users.findOne, users)({
             "services.resume.loginTokens": {
                 $elemMatch: {
-                    hadhedToken: hashLoginToken(loginToken),
+                    hashedToken: hashLoginToken(loginToken),
                     when: {
                         $gt: getLastValidDate()
                     }

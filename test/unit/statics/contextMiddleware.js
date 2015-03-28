@@ -2,9 +2,9 @@ var R      = require("ramda");
 var should = require("should");
 var sinon  = require("sinon");
 
-var statics = require("../../src/statics.js");
+var statics = require("../../../src/statics.js");
 
-describe("The `contextMiddleware` function", function () {
+describe("Unit suite - The `contextMiddleware` function", function () {
 
     it("should attach a default context to the request", function () {
         var req = {};

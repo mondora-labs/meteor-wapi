@@ -4,23 +4,26 @@
   "description": "Node module to allow CQRS-ing with Meteor",
   "main": "src/mw.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha test/**/*.js",
-    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec test/**/*.js"
+    "test": "node_modules/.bin/mocha test/unit/**/*.js",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec test/unit/**/*.js"
   },
   "author": "Paolo Scanferla <paolo.scanferla@mondora.com>",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^2.9.15",
-    "mongodb": "^2.0.25",
     "ramda": "^0.13.0",
     "tcomb": "^1.0.0",
     "tcomb-validation": "^1.0.1"
   },
   "devDependencies": {
+    "body-parser": "^1.12.2",
     "coveralls": "^2.11.2",
+    "express": "^4.12.3",
     "istanbul": "^0.3.11",
     "mocha": "^2.2.1",
+    "mongodb": "^2.0.25",
     "should": "^5.2.0",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "supertest": "^0.15.0"
   }
 }

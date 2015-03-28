@@ -2,9 +2,9 @@ var R      = require("ramda");
 var should = require("should");
 var sinon  = require("sinon");
 
-var methods = require("../../src/methods.js");
+var methods = require("../../../src/methods.js");
 
-describe("The `_runMethod` method", function () {
+describe("Unit suite - The `_runMethod` method", function () {
 
     it("should return a thenable", function () {
         var ret = methods._runMethod();
@@ -32,7 +32,7 @@ describe("The `_runMethod` method", function () {
 
 });
 
-describe("The promise returned by `_runMethod`", function () {
+describe("Unit suite - The promise returned by `_runMethod`", function () {
 
     it("should be rejected if the method does not exist", function (done) {
         var ctx = {

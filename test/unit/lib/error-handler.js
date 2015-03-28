@@ -1,10 +1,10 @@
 var should = require("should");
 var sinon  = require("sinon");
 
-var errorHandler = require("../../src/lib/error-handler.js");
-var MWError      = require("../../src/lib/mw-error.js");
+var errorHandler = require("../../../src/lib/error-handler.js");
+var MWError      = require("../../../src/lib/mw-error.js");
 
-describe("The `errorHandler` function", function () {
+describe("Unit suite - The `errorHandler` function", function () {
 
     var getResponse = function () {
         var res = {

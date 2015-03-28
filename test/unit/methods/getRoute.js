@@ -3,9 +3,9 @@ var R        = require("ramda");
 var should   = require("should");
 var sinon    = require("sinon");
 
-var methods = require("../../src/methods.js");
+var methods = require("../../../src/methods.js");
 
-describe("The `getRoute` method", function () {
+describe("Unit suite - The `getRoute` method", function () {
 
     it("should return a function", function () {
         methods.getRoute().should.be.of.type("function");
@@ -13,7 +13,7 @@ describe("The `getRoute` method", function () {
 
 });
 
-describe("The function returned by `getRoute`", function () {
+describe("Unit suite - The function returned by `getRoute`", function () {
 
     it("should call the `_runMethod` method", function () {
         var ctx = {

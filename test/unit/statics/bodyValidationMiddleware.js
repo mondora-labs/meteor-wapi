@@ -2,9 +2,9 @@ var R      = require("ramda");
 var should = require("should");
 var sinon  = require("sinon");
 
-var statics = require("../../src/statics.js");
+var statics = require("../../../src/statics.js");
 
-describe("The `bodyValidationMiddleware` function", function () {
+describe("Unit suite - The `bodyValidationMiddleware` function", function () {
 
     it("should stop the request with an error if the body is malformed", function () {
         var req = {
