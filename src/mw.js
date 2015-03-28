@@ -2,23 +2,17 @@ var R = require("ramda");
 
 var statics = require("./statics.js");
 var methods = require("./methods.js");
-var mongo   = require("./lib/mongo.js");
-var MWError = require("./lib/mw-error.js");
 
-var MW = function () {
+var MW = function (db) {
+    // db is a mongo client
+    this.db = db;
     this._methods = {};
 };
 
-// Merge statics
-R.pipe(
-    R.toPairs,
-    R.forEach(R.apply(function (key, val) {
-        MW[key] = val;
-    }))
-)(statics);
-MW.Error = MWError;
-MW.getMongoClient = mongo.getClient;
-
+// Merge statics (can't use R.merge because MW is a function)
+R.keys(statics).forEach(function (key) {
+    MW[key] = statics[key];
+});
 // Merge methods
 MW.prototype = R.merge(MW.prototype, methods);
 

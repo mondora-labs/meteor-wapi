@@ -8,9 +8,6 @@ var methods = require("../../src/methods.js");
 describe("The `getRoute` method", function () {
 
     it("should return a function", function () {
-        var ctx = {
-            _methods: {}
-        };
         methods.getRoute().should.be.of.type("function");
     });
 

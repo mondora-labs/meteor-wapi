@@ -1,21 +1,15 @@
-var BPromise = require("bluebird");
-var R        = require("ramda");
-var t        = require("tcomb-validation");
+var t = require("tcomb-validation");
 
-var getUserFromToken = require("./lib/get-user-from-token.js");
-var MWError          = require("./lib/mw-error.js");
-var errorHandler     = require("./lib/error-handler.js");
+var MWError      = require("./lib/mw-error.js");
+var errorHandler = require("./lib/error-handler.js");
+var BodyType     = require("./lib/body-type.js");
 
 var statics = {
 
-    BodyType: t.struct({
-        method: t.Str,
-        params: t.Arr,
-        loginToken: t.maybe(t.Str)
-    }),
+    Error: MWError,
 
     bodyValidationMiddleware: function (req, res, next) {
-        var validation = t.validate(req.body, statics.BodyType);
+        var validation = t.validate(req.body, BodyType);
         if (validation.isValid()) {
             next();
         } else {
@@ -28,22 +22,6 @@ var statics = {
             userId: null
         };
         next();
-    },
-
-    userMiddleware: function (req, res, next) {
-        if (R.isNil(req.body.loginToken)) {
-            return next();
-        }
-        getUserFromToken(req.body.loginToken)
-            .then(function (user) {
-                if (R.isNil(user)) {
-                    throw new MWError(401, "Invalid accessToken");
-                }
-                req.context.userId = user._id;
-                req.context.user = user;
-                next();
-            })
-            .catch(errorHandler(res));
     }
 
 };

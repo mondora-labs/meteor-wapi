@@ -2,9 +2,11 @@ var BPromise = require("bluebird");
 var R        = require("ramda");
 var t        = require("tcomb-validation");
 
-var errorHandler  = require("./lib/error-handler.js");
-var MWError       = require("./lib/mw-error.js");
-var resultHandler = require("./lib/result-handler.js");
+var errorHandler     = require("./lib/error-handler.js");
+var getLastValidDate = require("./lib/get-last-valid-date.js");
+var hashLoginToken   = require("./lib/hash-login-token.js");
+var MWError          = require("./lib/mw-error.js");
+var resultHandler    = require("./lib/result-handler.js");
 
 /*
 *   By convention, a method can either:
@@ -14,6 +16,20 @@ var resultHandler = require("./lib/result-handler.js");
 */
 
 var methods = {
+
+    _getUserFromToken: function (loginToken) {
+        var users = this.db.getCollection("users");
+        return BPromise.promisify(users.findOne, users)({
+            "services.resume.loginTokens": {
+                $elemMatch: {
+                    hadhedToken: hashLoginToken(loginToken),
+                    when: {
+                        $gt: getLastValidDate()
+                    }
+                }
+            }
+        });
+    },
 
     _runMethod: function (context, name, args) {
         var self = this;
@@ -41,6 +57,25 @@ var methods = {
         return function (req, res) {
             self._runMethod(req.context, req.body.method, req.body.params)
                 .then(resultHandler(res))
+                .catch(errorHandler(res));
+        };
+    },
+
+    getUserMiddleware: function () {
+        var self = this;
+        return function (req, res, next) {
+            if (R.isNil(req.body.loginToken)) {
+                return next();
+            }
+            self._getUserFromToken(req.body.loginToken)
+                .then(function (user) {
+                    if (R.isNil(user)) {
+                        throw new MWError(401, "Invalid loginToken");
+                    }
+                    req.context.userId = user._id;
+                    req.context.user = user;
+                    next();
+                })
                 .catch(errorHandler(res));
         };
     }
