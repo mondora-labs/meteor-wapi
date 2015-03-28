@@ -2,6 +2,11 @@ language: node_js
 
 node_js:
   - "0.12"
+  - "iojs"
+
+services:
+  - mongodb
 
 script:
+    ./node_modules/.bin/mocha test/integration/*.js test/unit/**/*.js
     ./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec test/unit/**/*.js && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
