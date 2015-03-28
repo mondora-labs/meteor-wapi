@@ -2,6 +2,7 @@ var R = require("ramda");
 
 var statics = require("./statics.js");
 var methods = require("./methods.js");
+var mongo   = require("./lib/mongo.js");
 var MWError = require("./lib/mw-error.js");
 
 var MW = function () {
@@ -15,7 +16,8 @@ R.pipe(
         MW[key] = val;
     }))
 )(statics);
-MW.MWError = MWError;
+MW.Error = MWError;
+MW.getMongoClient = mongo.getClient;
 
 // Merge methods
 MW.prototype = R.merge(MW.prototype, methods);

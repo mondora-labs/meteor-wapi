@@ -14,19 +14,16 @@ var connect = function () {
     });
 };
 
-var mongo = {
-    currentClient: null,
-    getClient: function () {
-        if (
-            // TODO - maybe check, for instance, if currentClient is still connected
-            R.isNil(mongo.currentClient)
-        ) {
-            mongo.currentClient = connect();
-            return mongo.currentClient;
-        } else {
-            return mongo.currentClient;
-        }
+var currentClient = null;
+
+exports.getClient = function getClient () {
+    if (
+        // TODO - maybe check, for instance, if currentClient is still connected
+        R.isNil(currentClient)
+    ) {
+        currentClient = connect();
+        return currentClient;
+    } else {
+        return currentClient;
     }
 };
-
-module.exports = mongo;
