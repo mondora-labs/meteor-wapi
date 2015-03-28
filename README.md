@@ -23,12 +23,20 @@ MongoClient.connect(mongoUrl, function (err, db) {
         return cb(err);
     }
     var mw = new MW(db);
+
+    mv.methods({
+        echo: function (string) {
+            return string;
+        }
+    });
+    
+    var path = "/method";
     var app = express()
-        .use(bodyParser.json())
-        .use(route, MW.bodyValidationMiddleware)
-        .use(route, MW.contextMiddleware)
-        .use(route, mw.getUserMiddleware())
-        .post(route, mw.getRoute())
+        .use(path, bodyParser.json())
+        .use(path, MW.bodyValidationMiddleware)
+        .use(path, MW.contextMiddleware)
+        .use(path, mw.getUserMiddleware())
+        .post(path, mw.getRoute())
         .listen(process.env.PORT || 4000);
 });
 ```
