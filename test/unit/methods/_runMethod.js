@@ -7,7 +7,7 @@ var methods = require("../../../src/methods.js");
 describe("Unit suite - The `_runMethod` method", function () {
 
     it("should return a thenable", function () {
-        var ret = methods._runMethod();
+        var ret = methods._runMethod({}, "", []);
         ret.catch(R.identity);
         ret.then.should.be.of.type("function");
     });
@@ -15,13 +15,16 @@ describe("Unit suite - The `_runMethod` method", function () {
     it("should actually call the method", function (done) {
         var ctx = {
             _methods: {
-                method: sinon.spy()
+                method: {
+                    fn: sinon.spy(),
+                    context: {}
+                }
             }
         };
-        methods._runMethod.call(ctx, {}, "method")
+        methods._runMethod.call(ctx, {}, "method", [])
             .then(function () {
                 try {
-                    ctx._methods.method.called.should.equal(true);
+                    ctx._methods.method.fn.called.should.equal(true);
                 } catch (e) {
                     return done(e);
                 }
@@ -38,7 +41,7 @@ describe("Unit suite - The promise returned by `_runMethod`", function () {
         var ctx = {
             _methods: {}
         };
-        methods._runMethod.call(ctx, {}, "method")
+        methods._runMethod.call(ctx, {}, "method", [])
             .then(function () {
                 done("The promise should have been rejected");
             })
@@ -57,10 +60,13 @@ describe("Unit suite - The promise returned by `_runMethod`", function () {
         var error = {};
         var ctx = {
             _methods: {
-                method: sinon.stub().throws(error)
+                method: {
+                    fn: sinon.stub().throws(error),
+                    context: {}
+                }
             }
         };
-        methods._runMethod.call(ctx, {}, "method")
+        methods._runMethod.call(ctx, {}, "method", [])
             .then(function () {
                 done("The promise should have been rejected");
             })
@@ -78,10 +84,13 @@ describe("Unit suite - The promise returned by `_runMethod`", function () {
         var value = {};
         var ctx = {
             _methods: {
-                method: sinon.stub().returns(value)
+                method: {
+                    fn: sinon.stub().returns(value),
+                    context: {}
+                }
             }
         };
-        methods._runMethod.call(ctx, {}, "method")
+        methods._runMethod.call(ctx, {}, "method", [])
             .then(function (val) {
                 try {
                     val.should.equal(value);

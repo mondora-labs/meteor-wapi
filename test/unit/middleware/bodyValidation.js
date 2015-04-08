@@ -2,9 +2,19 @@ var R      = require("ramda");
 var should = require("should");
 var sinon  = require("sinon");
 
-var statics = require("../../../src/statics.js");
+var middleware = require("../../../src/middleware.js");
 
-describe("Unit suite - The `bodyValidationMiddleware` function", function () {
+describe("Unit suite - The `bodyValidation` middleware getter", function () {
+
+    it("should return a middleware function", function () {
+        var bodyValidationMiddleware = middleware.bodyValidation();
+        bodyValidationMiddleware.should.be.of.type("function");
+        bodyValidationMiddleware.length.should.equal(3);
+    });
+
+});
+
+describe("Unit suite - The middleware function returned by the `bodyValidation` middleware getter", function () {
 
     it("should stop the request with an error if the body is malformed", function () {
         var req = {
@@ -17,7 +27,8 @@ describe("Unit suite - The `bodyValidationMiddleware` function", function () {
             send: sinon.spy()
         };
         var next = sinon.spy();
-        statics.bodyValidationMiddleware(req, res, next);
+        var bodyValidationMiddleware = middleware.bodyValidation();
+        bodyValidationMiddleware(req, res, next);
         res.status.called.should.equal(true);
         res.send.called.should.equal(true);
     });
@@ -31,7 +42,8 @@ describe("Unit suite - The `bodyValidationMiddleware` function", function () {
         };
         var res = {};
         var next = sinon.spy();
-        statics.bodyValidationMiddleware(req, res, next);
+        var bodyValidationMiddleware = middleware.bodyValidation();
+        bodyValidationMiddleware(req, res, next);
         next.called.should.equal(true);
     });
 

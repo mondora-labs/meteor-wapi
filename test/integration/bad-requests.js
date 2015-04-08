@@ -20,12 +20,7 @@ describe("Integration suite - Bad requests", function () {
 
     it("the server should reply a 400 on malformed body", function (done) {
         var mw = new MW(db);
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post(mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({unexpectedProp: "unexpectedValue"})

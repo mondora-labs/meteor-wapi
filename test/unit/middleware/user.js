@@ -3,20 +3,22 @@ var R        = require("ramda");
 var should   = require("should");
 var sinon    = require("sinon");
 
-var methods = require("../../../src/methods.js");
+var middleware = require("../../../src/middleware.js");
 
-describe("Unit suite - The `getUserMiddleware` method", function () {
+describe("Unit suite - The `user` middleware getter", function () {
 
-    it("should return a function", function () {
-        methods.getUserMiddleware().should.be.of.type("function");
+    it("should return a middleware function", function () {
+        var userMiddleware = middleware.user();
+        userMiddleware.should.be.of.type("function");
+        userMiddleware.length.should.equal(3);
     });
 
 });
 
-describe("Unit suite - The function returned by `getUserMiddleware`", function () {
+describe("Unit suite - The middleware function returned by the `user` middleware getter", function () {
 
     it("should let the request through if it doesn't have a `loginToken`", function () {
-        var userMiddleware = methods.getUserMiddleware();
+        var userMiddleware = middleware.user();
         var req = {body: {}};
         var res = {};
         var next = sinon.spy();
@@ -24,9 +26,16 @@ describe("Unit suite - The function returned by `getUserMiddleware`", function (
         next.called.should.equal(true);
     });
 
-    it("should 401 if there's an invalid `loginToken`", function (done) {
-        sinon.stub(methods, "_getUserFromToken").returns(BPromise.resolve(null));
-        var userMiddleware = methods.getUserMiddleware();
+    it("should 401 if there's an invalid `loginToken` (which doesn't match any user)", function (done) {
+        var userMiddleware = middleware.user({
+            db: {
+                collection: R.always({
+                    findOne: function (selector, cb) {
+                        cb(null, undefined);
+                    }
+                })
+            }
+        });
         var req = {
             body: {
                 loginToken: "invalid"
@@ -45,7 +54,6 @@ describe("Unit suite - The function returned by `getUserMiddleware`", function (
                 } catch (e) {
                     err = e;
                 }
-                methods._getUserFromToken.restore();
                 done(err);
             })
         };
@@ -54,8 +62,15 @@ describe("Unit suite - The function returned by `getUserMiddleware`", function (
     });
 
     it("should let the request through and attach the user object to the context", function (done) {
-        sinon.stub(methods, "_getUserFromToken").returns(BPromise.resolve({_id: "userId"}));
-        var userMiddleware = methods.getUserMiddleware();
+        var userMiddleware = middleware.user({
+            db: {
+                collection: R.always({
+                    findOne: function (selector, cb) {
+                        cb(null, {_id: "userId"});
+                    }
+                })
+            }
+        });
         var req = {
             body: {
                 loginToken: "valid"
@@ -72,7 +87,6 @@ describe("Unit suite - The function returned by `getUserMiddleware`", function (
             } catch (e) {
                 err = e;
             }
-            methods._getUserFromToken.restore();
             done(err);
         });
         userMiddleware(req, res, next);

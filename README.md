@@ -24,18 +24,18 @@ MongoClient.connect(mongoUrl, function (err, db) {
     }
     var mw = new MW(db);
 
+    var optionalContext = {
+        prefix: "echo: "
+    };
+
     mv.methods({
         echo: function (string) {
-            return string;
+            return this.prefix + string;
         }
-    });
-    
+    }, optionalContext);
+
     var path = "/method";
     var app = express()
-        .use(path, bodyParser.json())
-        .use(path, MW.bodyValidationMiddleware)
-        .use(path, MW.contextMiddleware)
-        .use(path, mw.getUserMiddleware())
         .post(path, mw.getRoute())
         .listen(process.env.PORT || 4000);
 });

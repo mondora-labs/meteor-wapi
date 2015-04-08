@@ -25,12 +25,7 @@ describe("Integration suite - User auth", function () {
                 return this.userId;
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "getUserId", params: [], loginToken: "loginToken"})
@@ -49,12 +44,7 @@ describe("Integration suite - User auth", function () {
                     return [this.userId, this.user];
                 }
             });
-            var app = express()
-                .use(bodyParser.json())
-                .use(MW.bodyValidationMiddleware)
-                .use(MW.contextMiddleware)
-                .use(mw.getUserMiddleware())
-                .post("/", mw.getRoute());
+            var app = express().use("/", mw.getRoute());
             request(app)
                 .post("/")
                 .send({method: "getUserIdAndUser", params: [], loginToken: "loginToken"})
@@ -71,12 +61,7 @@ describe("Integration suite - User auth", function () {
                 return this.userId;
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "getUserId", params: [], loginToken: "invalidLoginToken"})
@@ -92,12 +77,7 @@ describe("Integration suite - User auth", function () {
                 return this.userId;
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "getUserId", params: []})

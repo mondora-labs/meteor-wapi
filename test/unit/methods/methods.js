@@ -10,22 +10,30 @@ describe("Unit suite - The `methods` method", function () {
         var ctx = {
             _methods: {}
         };
+        var optionalContext = {};
         methods.methods.call(ctx, {
             name: R.identity
-        });
-        ctx._methods.name.should.equal(R.identity);
+        }, optionalContext);
+        ctx._methods.name.fn.should.equal(R.identity);
+        ctx._methods.name.context.should.equal(optionalContext);
     });
 
-    it("should throw if the map passed to it is not a dictionary of (string, function)", function () {
+    it("should type-check its arguments (throwing in case of mismatches)", function () {
         var ctx = {
             _methods: {}
         };
-        var troublemaker = function () {
+        var troublemaker_0 = function () {
             methods.methods.call(ctx, {
-                name: "string"
+                name: "notAFunction"
             });
         };
-        troublemaker.should.throw();
+        troublemaker_0.should.throw();
+        var troublemaker_1 = function () {
+            methods.methods.call(ctx, {
+                name: R.identity
+            }, "notAnObject");
+        };
+        troublemaker_1.should.throw();
     });
 
 });

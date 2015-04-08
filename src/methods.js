@@ -1,12 +1,14 @@
-var BPromise = require("bluebird");
-var R        = require("ramda");
-var t        = require("tcomb-validation");
+var BPromise   = require("bluebird");
+var bodyParser = require("body-parser");
+var express    = require("express");
+var R          = require("ramda");
+var t          = require("tcomb");
 
-var errorHandler     = require("./lib/error-handler.js");
-var getLastValidDate = require("./lib/get-last-valid-date.js");
-var hashLoginToken   = require("./lib/hash-login-token.js");
-var MWError          = require("./lib/mw-error.js");
-var resultHandler    = require("./lib/result-handler.js");
+var BPromiseType  = require("./lib/bpromise-type.js");
+var errorHandler  = require("./lib/error-handler.js");
+var MWError       = require("./lib/mw-error.js");
+var resultHandler = require("./lib/result-handler.js");
+var middleware    = require("./middleware.js");
 
 /*
 *   By convention, a method can either:
@@ -15,71 +17,64 @@ var resultHandler    = require("./lib/result-handler.js");
 *   - return a thenable
 */
 
-var methods = {
-
-    _getUserFromToken: function (loginToken) {
-        var users = this.db.collection("users");
-        return BPromise.promisify(users.findOne, users)({
-            "services.resume.loginTokens": {
-                $elemMatch: {
-                    hashedToken: hashLoginToken(loginToken),
-                    when: {
-                        $gt: getLastValidDate()
-                    }
-                }
+var _runMethod = function (reqContext, name, args) {
+    return BPromise.resolve()
+        .bind(this)
+        .then(function () {
+            var method = this._methods[name];
+            if (!method) {
+                throw new MWError(404, "Method not found");
             }
+            var context = R.merge(method.context, reqContext);
+            return method.fn.apply(context, args);
         });
-    },
+};
 
-    _runMethod: function (context, name, args) {
-        var self = this;
-        return new BPromise(function (resolve, reject) {
-            try {
-                var fn = self._methods[name];
-                if (!fn) {
-                    throw new MWError(404, "Method not found");
-                }
-                resolve(
-                    fn.apply(context, args)
-                );
-            } catch (e) {
-                return reject(e);
-            }
-        });
-    },
+var methods = function (methodsMap, context) {
+    var transform = function (fn) {
+        return {
+            fn: fn,
+            context: context || {}
+        };
+    };
+    this._methods = R.pipe(
+        R.mapObj(transform),
+        R.merge(this._methods)
+    )(methodsMap);
+};
 
-    methods: t.func(t.dict(t.Str, t.Func), t.Nil).of(function (methodsMap) {
-        this._methods = R.merge(this._methods, methodsMap);
-    }),
-
-    getRoute: function () {
-        var self = this;
-        return function (req, res) {
+var getRoute = function () {
+    var self = this;
+    return express.Router()
+        .use(bodyParser.json())
+        .use(middleware.bodyValidation())
+        .use(middleware.context())
+        .use(middleware.user(self))
+        .post("*", function (req, res) {
             self._runMethod(req.context, req.body.method, req.body.params)
                 .then(resultHandler(res))
                 .catch(errorHandler(res));
-        };
-    },
-
-    getUserMiddleware: function () {
-        var self = this;
-        return function (req, res, next) {
-            if (R.isNil(req.body.loginToken)) {
-                return next();
-            }
-            self._getUserFromToken(req.body.loginToken)
-                .then(function (user) {
-                    if (R.isNil(user)) {
-                        throw new MWError(401, "Invalid loginToken");
-                    }
-                    req.context.userId = user._id;
-                    req.context.user = user;
-                    next();
-                })
-                .catch(errorHandler(res));
-        };
-    }
-
+        });
 };
 
-module.exports = methods;
+/*
+*   Dynamically type-check our API
+*/
+module.exports = {
+    _runMethod: t.func([t.Obj, t.Str, t.Arr], BPromiseType).of(_runMethod),
+    methods: function (methodsMap, context) {
+        /*
+        *   Workaround tcomb issue #84 (which won't probably be fixed).
+        *   tcomb curries functions wrapped with the `Func.of` method.
+        *   Therefore, being the `context` argument optional, to avoid forcing
+        *   our user to always specify it as `undefined` we do it for them
+        *   (simply by calling the function with the two parameters, which
+        *   guarantees us that, inside the tcomb wrapper function,
+        *   `arguments.length` equals 2).
+        */
+        return t.func([t.dict(t.Str, t.Func), t.maybe(t.Obj)], t.Nil)
+            .of(methods)
+            .call(this, methodsMap, context);
+    },
+    getRoute: t.func([], t.Func).of(getRoute)
+};

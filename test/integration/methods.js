@@ -18,14 +18,9 @@ describe("Integration suite - Methods", function () {
         return st.teardown(db);
     });
 
-    it("methods that do not exist", function (done) {
+    it("that do not exist", function (done) {
         var mw = new MW(db);
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "nonexistentMethod", params: []})
@@ -34,18 +29,13 @@ describe("Integration suite - Methods", function () {
             .expect({error: "Method not found"}, done);
     });
 
-    it("methods that return undefined", function (done) {
+    it("that return undefined", function (done) {
         var mw = new MW(db);
         mw.methods({
             "return:value": function () {
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "return:value", params: []})
@@ -54,19 +44,14 @@ describe("Integration suite - Methods", function () {
             .expect({result: null}, done);
     });
 
-    it("methods that return a value", function (done) {
+    it("that return a value", function (done) {
         var mw = new MW(db);
         mw.methods({
             "return:value": function () {
                 return "return:value";
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "return:value", params: []})
@@ -75,19 +60,14 @@ describe("Integration suite - Methods", function () {
             .expect({result: "return:value"}, done);
     });
 
-    it("methods that throw a MW.Error", function (done) {
+    it("that throw a MW.Error", function (done) {
         var mw = new MW(db);
         mw.methods({
             "throw:mw-error": function () {
                 throw new MW.Error(499, "MW.Error");
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "throw:mw-error", params: []})
@@ -96,19 +76,14 @@ describe("Integration suite - Methods", function () {
             .expect({error: "MW.Error"}, done);
     });
 
-    it("methods that throw a generic error", function (done) {
+    it("that throw a generic error", function (done) {
         var mw = new MW(db);
         mw.methods({
             "throw:generic-error": function () {
                 throw new Error("Generic error");
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "throw:generic-error", params: []})
@@ -117,7 +92,7 @@ describe("Integration suite - Methods", function () {
             .expect({error: "Internal server error"}, done);
     });
 
-    it("methods that return a promise which is eventually resolved", function (done) {
+    it("that return a promise which is eventually resolved", function (done) {
         var mw = new MW(db);
         mw.methods({
             "return:promise:resolved": function () {
@@ -128,12 +103,7 @@ describe("Integration suite - Methods", function () {
                 });
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "return:promise:resolved", params: []})
@@ -142,7 +112,7 @@ describe("Integration suite - Methods", function () {
             .expect({result: "return:promise:resolved"}, done);
     });
 
-    it("methods that return a promise which is eventually rejected with an MW.Error", function (done) {
+    it("that return a promise which is eventually rejected with an MW.Error", function (done) {
         var mw = new MW(db);
         mw.methods({
             "return:promise:rejected:mw-error": function () {
@@ -153,12 +123,7 @@ describe("Integration suite - Methods", function () {
                 });
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "return:promise:rejected:mw-error", params: []})
@@ -167,7 +132,7 @@ describe("Integration suite - Methods", function () {
             .expect({error: "MW.Error"}, done);
     });
 
-    it("methods that return a promise which is eventually rejected with a generic error", function (done) {
+    it("that return a promise which is eventually rejected with a generic error", function (done) {
         var mw = new MW(db);
         mw.methods({
             "return:promise:rejected:generic-error": function () {
@@ -178,12 +143,7 @@ describe("Integration suite - Methods", function () {
                 });
             }
         });
-        var app = express()
-            .use(bodyParser.json())
-            .use(MW.bodyValidationMiddleware)
-            .use(MW.contextMiddleware)
-            .use(mw.getUserMiddleware())
-            .post("/", mw.getRoute());
+        var app = express().use("/", mw.getRoute());
         request(app)
             .post("/")
             .send({method: "return:promise:rejected:generic-error", params: []})
