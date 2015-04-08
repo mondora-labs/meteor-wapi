@@ -6,7 +6,7 @@ var sinon    = require("sinon");
 
 var methods = require("../../../src/methods.js");
 
-describe("Unit suite - The `getRoute` method", function () {
+describe("Unit suite - The `getRouter` method", function () {
 
     it("should return an express.Router", function () {
         /*
@@ -15,14 +15,14 @@ describe("Unit suite - The `getRoute` method", function () {
         *   current implementation, where a router is a function which has,
         *   according to its API, a `use` property (which is a function too).
         */
-        var router = methods.getRoute();
+        var router = methods.getRouter();
         router.should.be.of.type("function");
         router.use.should.be.of.type("function");
     });
 
 });
 
-describe("Unit suite - The function returned by `getRoute`", function () {
+describe("Unit suite - The function returned by `getRouter`", function () {
 
     it("should call the `_runMethod` method", function () {
         var ctx = {
@@ -30,7 +30,7 @@ describe("Unit suite - The function returned by `getRoute`", function () {
                 return new BPromise(R.identity);
             })
         };
-        var route = methods.getRoute.call(ctx);
+        var route = methods.getRouter.call(ctx);
         /*
         *   Mock the request "only as much as needed" to make it pass through
         *   the router. We accept this poor compromise since this part is also

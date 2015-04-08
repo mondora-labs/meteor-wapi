@@ -20,7 +20,7 @@ describe("Integration suite - Bad requests", function () {
 
     it("the server should reply a 400 on malformed body", function (done) {
         var mw = new MW(db);
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({unexpectedProp: "unexpectedValue"})

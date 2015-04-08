@@ -36,7 +36,7 @@ MongoClient.connect(mongoUrl, function (err, db) {
 
     var path = "/method";
     var app = express()
-        .post(path, mw.getRoute())
+        .post(path, mw.getRouter())
         .listen(process.env.PORT || 4000);
 });
 ```

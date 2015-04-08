@@ -20,7 +20,7 @@ describe("Integration suite - Methods", function () {
 
     it("that do not exist", function (done) {
         var mw = new MW(db);
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "nonexistentMethod", params: []})
@@ -35,7 +35,7 @@ describe("Integration suite - Methods", function () {
             "return:value": function () {
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "return:value", params: []})
@@ -51,7 +51,7 @@ describe("Integration suite - Methods", function () {
                 return "return:value";
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "return:value", params: []})
@@ -67,7 +67,7 @@ describe("Integration suite - Methods", function () {
                 throw new MW.Error(499, "MW.Error");
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "throw:mw-error", params: []})
@@ -83,7 +83,7 @@ describe("Integration suite - Methods", function () {
                 throw new Error("Generic error");
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "throw:generic-error", params: []})
@@ -103,7 +103,7 @@ describe("Integration suite - Methods", function () {
                 });
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "return:promise:resolved", params: []})
@@ -123,7 +123,7 @@ describe("Integration suite - Methods", function () {
                 });
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "return:promise:rejected:mw-error", params: []})
@@ -143,7 +143,7 @@ describe("Integration suite - Methods", function () {
                 });
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "return:promise:rejected:generic-error", params: []})

@@ -43,7 +43,7 @@ var methods = function (methodsMap, context) {
     )(methodsMap);
 };
 
-var getRoute = function () {
+var getRouter = function () {
     var self = this;
     return express.Router()
         .use(bodyParser.json())
@@ -76,5 +76,5 @@ module.exports = {
             .of(methods)
             .call(this, methodsMap, context);
     },
-    getRoute: t.func([], t.Func).of(getRoute)
+    getRouter: t.func([], t.Func).of(getRouter)
 };

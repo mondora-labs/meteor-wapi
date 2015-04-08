@@ -25,7 +25,7 @@ describe("Integration suite - User auth", function () {
                 return this.userId;
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "getUserId", params: [], loginToken: "loginToken"})
@@ -44,7 +44,7 @@ describe("Integration suite - User auth", function () {
                     return [this.userId, this.user];
                 }
             });
-            var app = express().use("/", mw.getRoute());
+            var app = express().use("/", mw.getRouter());
             request(app)
                 .post("/")
                 .send({method: "getUserIdAndUser", params: [], loginToken: "loginToken"})
@@ -61,7 +61,7 @@ describe("Integration suite - User auth", function () {
                 return this.userId;
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "getUserId", params: [], loginToken: "invalidLoginToken"})
@@ -77,7 +77,7 @@ describe("Integration suite - User auth", function () {
                 return this.userId;
             }
         });
-        var app = express().use("/", mw.getRoute());
+        var app = express().use("/", mw.getRouter());
         request(app)
             .post("/")
             .send({method: "getUserId", params: []})
