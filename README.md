@@ -7,11 +7,9 @@
 
 Node module to allow CQRS-ing with Meteor.
 
-
 ## Example
 
 ```js
-var bodyParser  = require("body-parser");
 var express     = require("express");
 var MongoClient = require("mongodb").MongoClient;
 var MW          = require("meteor-wapi");
@@ -19,24 +17,17 @@ var MW          = require("meteor-wapi");
 var mongoUrl = process.env.MONGO_URL || "mongodb://localhost:3001/meteor";
 
 MongoClient.connect(mongoUrl, function (err, db) {
-    if (err) {
-        return cb(err);
-    }
     var mw = new MW(db);
-
     var optionalContext = {
         prefix: "echo: "
     };
-
-    mv.methods({
+    mw.methods({
         echo: function (string) {
             return this.prefix + string;
         }
     }, optionalContext);
-
-    var path = "/method";
     var app = express()
-        .post(path, mw.getRouter())
+        .use("/call", mw.getRouter())
         .listen(process.env.PORT || 4000);
 });
 ```

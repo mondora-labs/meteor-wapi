@@ -33,6 +33,32 @@ describe("Unit suite - The `_runMethod` method", function () {
             .catch(done);
     });
 
+    it("should call the method with the additional context we provide when registering it", function (done) {
+        var ctx = {
+            _methods: {
+                method: {
+                    fn: sinon.spy(),
+                    context: {
+                        prop: "value"
+                    }
+                }
+            }
+        };
+        methods._runMethod.call(ctx, {userId: null}, "method", [])
+            .then(function () {
+                try {
+                    ctx._methods.method.fn.firstCall.thisValue.should.eql({
+                        userId: null,
+                        prop: "value"
+                    });
+                } catch (e) {
+                    return done(e);
+                }
+                done();
+            })
+            .catch(done);
+    });
+
 });
 
 describe("Unit suite - The promise returned by `_runMethod`", function () {
