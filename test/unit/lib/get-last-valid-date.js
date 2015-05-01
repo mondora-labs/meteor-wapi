@@ -1,6 +1,6 @@
 var should = require("should");
 
-var getLastValidDate = require("../../../src/lib/get-last-valid-date.js");
+var getLastValidDate = require("lib/get-last-valid-date.js");
 
 describe("Unit suite - The `getLastValidDate` function", function () {
 

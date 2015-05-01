@@ -4,7 +4,7 @@ var R        = require("ramda");
 var should   = require("should");
 var sinon    = require("sinon");
 
-var methods = require("../../../src/methods.js");
+var methods = require("methods.js");
 
 describe("Unit suite - The `getRouter` method", function () {
 

@@ -1,9 +1,8 @@
-var BPromise   = require("bluebird");
-var bodyParser = require("body-parser");
-var express    = require("express");
-var request    = require("supertest");
+var BPromise = require("bluebird");
+var express  = require("express");
+var request  = require("supertest-as-promised");
 
-var MW = require("../../src/mw.js");
+var MW = require("../../");
 var st = require("../st.js");
 
 describe("Integration suite - Bad requests", function () {
@@ -18,14 +17,14 @@ describe("Integration suite - Bad requests", function () {
         return st.teardown(db);
     });
 
-    it("the server should reply a 400 on malformed body", function (done) {
+    it("the server should reply a 400 on malformed body", function () {
         var mw = new MW(db);
         var app = express().use("/", mw.getRouter());
-        request(app)
+        return request(app)
             .post("/")
             .send({unexpectedProp: "unexpectedValue"})
             .expect("Content-Type", /json/)
-            .expect(400, done);
+            .expect(400);
     });
 
 });

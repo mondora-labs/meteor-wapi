@@ -2,7 +2,7 @@ var R      = require("ramda");
 var should = require("should");
 var sinon  = require("sinon");
 
-var middleware = require("../../../src/middleware.js");
+var middleware = require("middleware.js");
 
 describe("Unit suite - The `bodyValidation` middleware getter", function () {
 

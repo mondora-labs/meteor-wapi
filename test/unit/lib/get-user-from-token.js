@@ -1,7 +1,7 @@
 var R      = require("ramda");
 var should = require("should");
 
-var getUserFromToken = require("../../../src/lib/get-user-from-token.js");
+var getUserFromToken = require("lib/get-user-from-token.js");
 
 describe("Unit suite - The `getUserFromToken` function", function () {
 

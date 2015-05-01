@@ -1,6 +1,6 @@
 var should = require("should");
 
-var hashLoginToken = require("../../../src/lib/hash-login-token.js");
+var hashLoginToken = require("lib/hash-login-token.js");
 
 describe("Unit suite - The `hashLoginToken` function", function () {
 

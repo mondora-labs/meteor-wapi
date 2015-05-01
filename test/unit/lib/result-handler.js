@@ -1,7 +1,7 @@
 var should = require("should");
 var sinon  = require("sinon");
 
-var resultHandler = require("../../../src/lib/result-handler.js");
+var resultHandler = require("lib/result-handler.js");
 
 describe("Unit suite - The `resultHandler` function", function () {
 
