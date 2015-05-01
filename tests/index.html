@@ -1,0 +1,1793 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mochawesome Report Card</title>
+    <link rel="stylesheet" href="css/mochawesome.css">
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="report-info-cnt">
+          <h1 class="report-title">meteor-wapi</h1>
+          <h3 class="report-date">Friday, May 1 2015, 11:13pm</h3>
+        </div>
+        <div class="quick-summary-cnt">
+            <ul class="list-unstyled quick-summary">
+              <li class="qs-item summary-duration" title="Duration">867<span>MS</span></li>
+              <li class="qs-item summary-suites" title="Suites">19</li>
+              <li class="qs-item summary-tests" title="Tests">39</li>
+              <li class="qs-item summary-passes" title="Passed" data-filter="passed">39</li>
+              <li class="qs-item summary-failures" title="Failed" data-filter="failed">0</li>
+              <li class="qs-item summary-pending" title="Pending" data-filter="pending">0</li>
+            </ul>        </div>
+      </div>
+    </div>
+
+    <!-- Report Summary -->
+    <div class="summary">
+      <div class="container">
+          <div class="row">
+            <div class="summary-col summary-duration">
+              <h1 class="summary-count">867<span>MS</span></h1>
+              <h4 class="summary-label">MS</h4>
+            </div>
+            <div class="summary-col summary-suites" title="Suites">
+              <h1 class="summary-count">19</h1>
+              <h4 class="summary-label">Suites</h4>
+            </div>
+            <div class="summary-col summary-tests" title="Tests">
+              <h1 class="summary-count">39</h1>
+              <h4 class="summary-label">Tests</h4>
+            </div>
+            <div class="summary-col summary-passes" data-filter="passed" title="Passed">
+              <h1 class="summary-count">39</h1>
+              <h4 class="summary-label">Passed</h4>
+            </div>
+            <div class="summary-col summary-failures" data-filter="failed" title="Failed">
+              <h1 class="summary-count">0</h1>
+              <h4 class="summary-label">Failed</h4>
+            </div>
+            <div class="summary-col summary-pending" data-filter="pending" title="Pending">
+              <h1 class="summary-count">0</h1>
+              <h4 class="summary-label">Pending</h4>
+            </div>
+          </div>      </div>
+    </div>
+    <div class="statusbar">
+      <div class="container">
+          <div class="row">
+            <div class="status-item status-item-pending-pct">0% Pending</div>
+            <div class="status-item status-item-passing-pct success">100% Passing</div>
+          </div>      </div>
+    </div>
+
+    <!-- Suites -->
+    <div class="details container">
+            <section class="suite-wrap">
+              <div id="99064b0c-6b14-4c08-9c93-aac780568449" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;errorHandler&#x60; function</h3>
+                <h5 class="suite-filename">/test/unit/lib/error-handler.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="99064b0c-6b14-4c08-9c93-aac780568449" class="suite-chart" width="50" height="50" data-total-passes="3" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">4 ms</li>
+                    <li class="suite-summary-item tests">3</li>
+                    <li class="suite-summary-item passed">3</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#99064b0c-6b14-4c08-9c93-aac780568449-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="99064b0c-6b14-4c08-9c93-aac780568449-test-list" class="list-group test-list collapse in">
+                        <div id="c4cda6e5-2fd6-4d25-99bd-c4ef53328ca8" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should send the custom error if it&#x27;s an instance of MWError
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c4cda6e5-2fd6-4d25-99bd-c4ef53328ca8 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">2 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> res = getResponse();
+                        errorHandler(res, <span class="hljs-keyword">new</span> MWError(<span class="hljs-number">400</span>, <span class="hljs-string">"Message"</span>));
+                        res.status.calledWith(<span class="hljs-number">400</span>).should.equal(<span class="hljs-literal">true</span>);
+                        res.send.calledWith({error: <span class="hljs-string">"Message"</span>}).should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="dbbe1ef6-3694-4223-8f95-127682356fb1" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should send a 500 if the error is not an instance of MWError
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#dbbe1ef6-3694-4223-8f95-127682356fb1 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> res = getResponse();
+                        errorHandler(res, <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Message"</span>));
+                        res.status.calledWith(<span class="hljs-number">500</span>).should.equal(<span class="hljs-literal">true</span>);
+                        res.send.calledWith({error: <span class="hljs-string">"Internal server error"</span>}).should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="d4662db8-238b-46a2-9cfb-ff4238272eb0" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should log an error if the error is not an instance of MWError
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#d4662db8-238b-46a2-9cfb-ff4238272eb0 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> error = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Message"</span>);
+                        <span class="hljs-keyword">var</span> res = getResponse();
+                        errorHandler(res, error);
+                        <span class="hljs-built_in">console</span>.error.calledWith(error).should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="c323325a-1b71-449d-bfa8-a8afa4b1a495" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;getLastValidDate&#x60; function</h3>
+                <h5 class="suite-filename">/test/unit/lib/get-last-valid-date.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="c323325a-1b71-449d-bfa8-a8afa4b1a495" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">0 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#c323325a-1b71-449d-bfa8-a8afa4b1a495-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="c323325a-1b71-449d-bfa8-a8afa4b1a495-test-list" class="list-group test-list collapse in">
+                        <div id="2c7bcb54-41a9-451a-a441-ba0c3e572f5b" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should get the last valid date from now
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#2c7bcb54-41a9-451a-a441-ba0c3e572f5b > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> EIGHTYNINE_DAYS_AGO_IN_MS = <span class="hljs-built_in">Date</span>.now() - (<span class="hljs-number">89</span> * <span class="hljs-number">24</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">1000</span>);
+                        <span class="hljs-keyword">var</span> ret = getLastValidDate();
+                        (ret.getTime() &lt; EIGHTYNINE_DAYS_AGO_IN_MS).should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="2dcdb20b-aba8-42cb-a0d1-f36705746b54" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;getUserFromToken&#x60; function</h3>
+                <h5 class="suite-filename">/test/unit/lib/get-user-from-token.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="2dcdb20b-aba8-42cb-a0d1-f36705746b54" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">2 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#2dcdb20b-aba8-42cb-a0d1-f36705746b54-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="2dcdb20b-aba8-42cb-a0d1-f36705746b54-test-list" class="list-group test-list collapse in">
+                        <div id="71dc93a4-cb3b-4300-9d32-d1692034e99d" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should return a thenable
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#71dc93a4-cb3b-4300-9d32-d1692034e99d > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">2 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mwInstance = {
+                            db: {
+                                collection: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    <span class="hljs-keyword">return</span> {
+                                        findOne: R.always(<span class="hljs-literal">null</span>)
+                                    };
+                                }
+                            }
+                        };
+                        <span class="hljs-keyword">var</span> ret = getUserFromToken(mwInstance, <span class="hljs-string">"loginToken"</span>);
+                        ret.then.should.be.of.type(<span class="hljs-string">"function"</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="ad7d3aad-5cf9-4d76-a04d-9e794a637496" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;hashLoginToken&#x60; function</h3>
+                <h5 class="suite-filename">/test/unit/lib/hash-login-token.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="ad7d3aad-5cf9-4d76-a04d-9e794a637496" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">0 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#ad7d3aad-5cf9-4d76-a04d-9e794a637496-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="ad7d3aad-5cf9-4d76-a04d-9e794a637496-test-list" class="list-group test-list collapse in">
+                        <div id="24854d7f-c613-4aea-91c7-713f605b1069" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should hash with sha256 the passed in string and return it as a base64 string
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#24854d7f-c613-4aea-91c7-713f605b1069 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ret = hashLoginToken(<span class="hljs-string">"hello"</span>);
+                        ret.should.equal(<span class="hljs-string">"LPJNul+wow4m6DsqxbninhsWHlwfp0JecwQzYpOLmCQ="</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="cfea5496-72f2-4fac-b615-ed38ea9b6e73" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;resultHandler&#x60; function</h3>
+                <h5 class="suite-filename">/test/unit/lib/result-handler.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="cfea5496-72f2-4fac-b615-ed38ea9b6e73" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">1 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#cfea5496-72f2-4fac-b615-ed38ea9b6e73-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="cfea5496-72f2-4fac-b615-ed38ea9b6e73-test-list" class="list-group test-list collapse in">
+                        <div id="f19eedbc-cc18-471b-9545-dc58da4d1f5e" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should send the provided response with a 200 HTTP code
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#f19eedbc-cc18-471b-9545-dc58da4d1f5e > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> res_0 = getResponse();
+                                resultHandler(res_0, {});
+                                res_0.status.calledWith(<span class="hljs-number">200</span>).should.equal(<span class="hljs-literal">true</span>);
+                                res_0.send.calledWith({result: {}}).should.equal(<span class="hljs-literal">true</span>);
+                                <span class="hljs-keyword">var</span> res_1 = getResponse();
+                                resultHandler(res_1, <span class="hljs-literal">undefined</span>);
+                                res_1.status.calledWith(<span class="hljs-number">200</span>).should.equal(<span class="hljs-literal">true</span>);
+                                res_1.send.calledWith({result: <span class="hljs-literal">null</span>}).should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="86b5c403-e0ff-4d50-8559-7f5ba4fd9c20" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;_runMethod&#x60; method</h3>
+                <h5 class="suite-filename">/test/unit/methods/_runMethod.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="86b5c403-e0ff-4d50-8559-7f5ba4fd9c20" class="suite-chart" width="50" height="50" data-total-passes="3" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">5 ms</li>
+                    <li class="suite-summary-item tests">3</li>
+                    <li class="suite-summary-item passed">3</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#86b5c403-e0ff-4d50-8559-7f5ba4fd9c20-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="86b5c403-e0ff-4d50-8559-7f5ba4fd9c20-test-list" class="list-group test-list collapse in">
+                        <div id="9f7a34c4-4b4a-408f-afed-5aaaef3019f6" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should return a thenable
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#9f7a34c4-4b4a-408f-afed-5aaaef3019f6 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">2 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ret = methods._runMethod({}, <span class="hljs-string">""</span>, []);
+                        ret.catch(R.identity);
+                        ret.then.should.be.of.type(<span class="hljs-string">"function"</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="3f089bc3-72ed-4eb2-a888-542799f8260f" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should actually call the method
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#3f089bc3-72ed-4eb2-a888-542799f8260f > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ctx = {
+                            _methods: {
+                                method: {
+                                    fn: sinon.spy(),
+                                    context: {}
+                                }
+                            }
+                        };
+                        methods._runMethod.call(ctx, {}, <span class="hljs-string">"method"</span>, [])
+                            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">try</span> {
+                                    ctx._methods.method.fn.called.should.equal(<span class="hljs-literal">true</span>);
+                                } <span class="hljs-keyword">catch</span> (e) {
+                                    <span class="hljs-keyword">return</span> done(e);
+                                }
+                                done();
+                            })
+                            .catch(done);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="b35326f1-a790-4e06-b673-7c803f27111f" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should call the method with the additional context we provide when registering it
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#b35326f1-a790-4e06-b673-7c803f27111f > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">2 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ctx = {
+                            _methods: {
+                                method: {
+                                    fn: sinon.spy(),
+                                    context: {
+                                        prop: <span class="hljs-string">"value"</span>
+                                    }
+                                }
+                            }
+                        };
+                        methods._runMethod.call(ctx, {userId: <span class="hljs-literal">null</span>}, <span class="hljs-string">"method"</span>, [])
+                            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">try</span> {
+                                    ctx._methods.method.fn.firstCall.thisValue.should.eql({
+                                        userId: <span class="hljs-literal">null</span>,
+                                        prop: <span class="hljs-string">"value"</span>
+                                    });
+                                } <span class="hljs-keyword">catch</span> (e) {
+                                    <span class="hljs-keyword">return</span> done(e);
+                                }
+                                done();
+                            })
+                            .catch(done);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="1dcaa722-084c-4e96-8b21-0cf3a70281e0" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The promise returned by &#x60;_runMethod&#x60;</h3>
+                <h5 class="suite-filename">/test/unit/methods/_runMethod.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="1dcaa722-084c-4e96-8b21-0cf3a70281e0" class="suite-chart" width="50" height="50" data-total-passes="3" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">2 ms</li>
+                    <li class="suite-summary-item tests">3</li>
+                    <li class="suite-summary-item passed">3</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#1dcaa722-084c-4e96-8b21-0cf3a70281e0-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="1dcaa722-084c-4e96-8b21-0cf3a70281e0-test-list" class="list-group test-list collapse in">
+                        <div id="47194b00-9e4f-4edf-9096-38b379b9af8f" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should be rejected if the method does not exist
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#47194b00-9e4f-4edf-9096-38b379b9af8f > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ctx = {
+                            _methods: {}
+                        };
+                        methods._runMethod.call(ctx, {}, <span class="hljs-string">"method"</span>, [])
+                            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                done(<span class="hljs-string">"The promise should have been rejected"</span>);
+                            })
+                            .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+                                <span class="hljs-keyword">try</span> {
+                                    err.code.should.equal(<span class="hljs-number">404</span>);
+                                    err.message.should.equal(<span class="hljs-string">"Method not found"</span>);
+                                } <span class="hljs-keyword">catch</span> (e) {
+                                    <span class="hljs-keyword">return</span> done(e);
+                                }
+                                done();
+                            });</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="477780c8-bf44-474e-a0e5-2bdf675514bc" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should be rejected if the method throws
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#477780c8-bf44-474e-a0e5-2bdf675514bc > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> error = {};
+                        <span class="hljs-keyword">var</span> ctx = {
+                            _methods: {
+                                method: {
+                                    fn: sinon.stub().throws(error),
+                                    context: {}
+                                }
+                            }
+                        };
+                        methods._runMethod.call(ctx, {}, <span class="hljs-string">"method"</span>, [])
+                            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                done(<span class="hljs-string">"The promise should have been rejected"</span>);
+                            })
+                            .catch(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err)</span> </span>{
+                                <span class="hljs-keyword">try</span> {
+                                    err.should.equal(error);
+                                } <span class="hljs-keyword">catch</span> (e) {
+                                    <span class="hljs-keyword">return</span> done(e);
+                                }
+                                done();
+                            });</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="c778fd85-cca9-44f4-8da8-b4e6ddeb989c" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should be resolved with the value returned by the method
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c778fd85-cca9-44f4-8da8-b4e6ddeb989c > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> value = {};
+                        <span class="hljs-keyword">var</span> ctx = {
+                            _methods: {
+                                method: {
+                                    fn: sinon.stub().returns(value),
+                                    context: {}
+                                }
+                            }
+                        };
+                        methods._runMethod.call(ctx, {}, <span class="hljs-string">"method"</span>, [])
+                            .then(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(val)</span> </span>{
+                                <span class="hljs-keyword">try</span> {
+                                    val.should.equal(value);
+                                } <span class="hljs-keyword">catch</span> (e) {
+                                    <span class="hljs-keyword">return</span> done(e);
+                                }
+                                done();
+                            })
+                            .catch(done);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="dd6cc818-b27b-4581-ab19-f7d4aae2a02f" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;getRouter&#x60; method</h3>
+                <h5 class="suite-filename">/test/unit/methods/getRouter.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="dd6cc818-b27b-4581-ab19-f7d4aae2a02f" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">17 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#dd6cc818-b27b-4581-ab19-f7d4aae2a02f-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="dd6cc818-b27b-4581-ab19-f7d4aae2a02f-test-list" class="list-group test-list collapse in">
+                        <div id="10a65771-6c9c-4c8a-b945-76885e1bcd0c" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should return an express.Router
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#10a65771-6c9c-4c8a-b945-76885e1bcd0c > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">17 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-comment">/*
+                        *   express routers are not instances of any class, therefore we can't
+                        *   use `instanceOf` for this test. Instead we test it against the
+                        *   current implementation, where a router is a function which has,
+                        *   according to its API, a `use` property (which is a function too).
+                        */</span>
+                        <span class="hljs-keyword">var</span> router = methods.getRouter();
+                        router.should.be.of.type(<span class="hljs-string">"function"</span>);
+                        router.use.should.be.of.type(<span class="hljs-string">"function"</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="0741a1b3-4fab-4338-95d8-55803fd11f72" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The function returned by &#x60;getRouter&#x60;</h3>
+                <h5 class="suite-filename">/test/unit/methods/getRouter.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="0741a1b3-4fab-4338-95d8-55803fd11f72" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">3 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#0741a1b3-4fab-4338-95d8-55803fd11f72-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="0741a1b3-4fab-4338-95d8-55803fd11f72-test-list" class="list-group test-list collapse in">
+                        <div id="bbbca0a6-bc0e-4578-9335-bdeb9bb1431a" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should call the &#x60;_runMethod&#x60; method
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#bbbca0a6-bc0e-4578-9335-bdeb9bb1431a > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">3 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ctx = {
+                            _runMethod: sinon.spy(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BPromise(R.identity);
+                            })
+                        };
+                        <span class="hljs-keyword">var</span> route = methods.getRouter.call(ctx);
+                        <span class="hljs-comment">/*
+                        *   Mock the request "only as much as needed" to make it pass through
+                        *   the router. We accept this poor compromise since this part is also
+                        *   thoroughly tested with integration tests.
+                        */</span>
+                        <span class="hljs-keyword">var</span> req = {
+                            url: <span class="hljs-string">"/"</span>,
+                            method: <span class="hljs-string">"POST"</span>,
+                            context: {},
+                            <span class="hljs-comment">/*
+                            *   If the bodyParser middleware finds a _body property on the
+                            *   request, it lets it through.
+                            */</span>
+                            _body: <span class="hljs-string">"notUndefined"</span>,
+                            body: {
+                                method: <span class="hljs-string">"method"</span>,
+                                params: []
+                            }
+                        };
+                        <span class="hljs-keyword">var</span> res = {};
+                        <span class="hljs-keyword">var</span> next = R.identity;
+                        route(req, res, next);
+                        ctx._runMethod.calledWith(req.context, req.body.method, req.body.params).should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="cb26a5db-737d-4f86-8d3a-bf571966f812" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;methods&#x60; method</h3>
+                <h5 class="suite-filename">/test/unit/methods/methods.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="cb26a5db-737d-4f86-8d3a-bf571966f812" class="suite-chart" width="50" height="50" data-total-passes="2" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">2 ms</li>
+                    <li class="suite-summary-item tests">2</li>
+                    <li class="suite-summary-item passed">2</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#cb26a5db-737d-4f86-8d3a-bf571966f812-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="cb26a5db-737d-4f86-8d3a-bf571966f812-test-list" class="list-group test-list collapse in">
+                        <div id="0011b40e-9832-408e-af49-eba591df32b4" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should register methods
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#0011b40e-9832-408e-af49-eba591df32b4 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ctx = {
+                            _methods: {}
+                        };
+                        <span class="hljs-keyword">var</span> optionalContext = {};
+                        methods.methods.call(ctx, {
+                            name: R.identity
+                        }, optionalContext);
+                        ctx._methods.name.fn.should.equal(R.identity);
+                        ctx._methods.name.context.should.equal(optionalContext);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="2d6c2147-922c-41c7-a8a4-7fae4c3c86eb" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should type-check its arguments (throwing in case of mismatches)
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#2d6c2147-922c-41c7-a8a4-7fae4c3c86eb > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> ctx = {
+                            _methods: {}
+                        };
+                        <span class="hljs-keyword">var</span> troublemaker_0 = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            methods.methods.call(ctx, {
+                                name: <span class="hljs-string">"notAFunction"</span>
+                            });
+                        };
+                        troublemaker_0.should.throw();
+                        <span class="hljs-keyword">var</span> troublemaker_1 = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            methods.methods.call(ctx, {
+                                name: R.identity
+                            }, <span class="hljs-string">"notAnObject"</span>);
+                        };
+                        troublemaker_1.should.throw();</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="32d89507-85ee-4240-811e-524876991191" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;bodyValidation&#x60; middleware getter</h3>
+                <h5 class="suite-filename">/test/unit/middleware/bodyValidation.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="32d89507-85ee-4240-811e-524876991191" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">0 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#32d89507-85ee-4240-811e-524876991191-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="32d89507-85ee-4240-811e-524876991191-test-list" class="list-group test-list collapse in">
+                        <div id="9b62330f-24f8-43a1-a33e-d83e95d2553d" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should return a middleware function
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#9b62330f-24f8-43a1-a33e-d83e95d2553d > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> bodyValidationMiddleware = middleware.bodyValidation();
+                        bodyValidationMiddleware.should.be.of.type(<span class="hljs-string">"function"</span>);
+                        bodyValidationMiddleware.length.should.equal(<span class="hljs-number">3</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="4e52d0a9-c818-4fe8-b6d8-c93360364376" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The middleware function returned by the &#x60;bodyValidation&#x60; middleware getter</h3>
+                <h5 class="suite-filename">/test/unit/middleware/bodyValidation.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="4e52d0a9-c818-4fe8-b6d8-c93360364376" class="suite-chart" width="50" height="50" data-total-passes="2" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">2 ms</li>
+                    <li class="suite-summary-item tests">2</li>
+                    <li class="suite-summary-item passed">2</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#4e52d0a9-c818-4fe8-b6d8-c93360364376-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="4e52d0a9-c818-4fe8-b6d8-c93360364376-test-list" class="list-group test-list collapse in">
+                        <div id="7bc70931-1f20-47a8-be0d-bf938d6066e4" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should stop the request with an error if the body is malformed
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#7bc70931-1f20-47a8-be0d-bf938d6066e4 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> req = {
+                            body: <span class="hljs-string">"malformed body"</span>
+                        };
+                        <span class="hljs-keyword">var</span> res = {
+                            status: sinon.spy(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> res;
+                            }),
+                            send: sinon.spy()
+                        };
+                        <span class="hljs-keyword">var</span> next = sinon.spy();
+                        <span class="hljs-keyword">var</span> bodyValidationMiddleware = middleware.bodyValidation();
+                        bodyValidationMiddleware(req, res, next);
+                        res.status.called.should.equal(<span class="hljs-literal">true</span>);
+                        res.send.called.should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="4df17930-0b7f-4428-a1d3-6e90b3a47f2e" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should let the request through if the body is well-formed
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#4df17930-0b7f-4428-a1d3-6e90b3a47f2e > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> req = {
+                            body: {
+                                method: <span class="hljs-string">"method"</span>,
+                                params: []
+                            }
+                        };
+                        <span class="hljs-keyword">var</span> res = {};
+                        <span class="hljs-keyword">var</span> next = sinon.spy();
+                        <span class="hljs-keyword">var</span> bodyValidationMiddleware = middleware.bodyValidation();
+                        bodyValidationMiddleware(req, res, next);
+                        next.called.should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="ccb44edc-9444-4e0a-b1c6-20fe483595f4" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;context&#x60; middleware getter</h3>
+                <h5 class="suite-filename">/test/unit/middleware/context.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="ccb44edc-9444-4e0a-b1c6-20fe483595f4" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">0 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#ccb44edc-9444-4e0a-b1c6-20fe483595f4-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="ccb44edc-9444-4e0a-b1c6-20fe483595f4-test-list" class="list-group test-list collapse in">
+                        <div id="9dcaef1b-7388-4c9d-b619-f7d15f1e98ed" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should return a middleware function
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#9dcaef1b-7388-4c9d-b619-f7d15f1e98ed > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> contextMiddleware = middleware.context();
+                        contextMiddleware.should.be.of.type(<span class="hljs-string">"function"</span>);
+                        contextMiddleware.length.should.equal(<span class="hljs-number">3</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="54f313e1-951e-4729-a0e4-eeffa0bcb017" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The middleware function returned by the &#x60;context&#x60; middleware getter</h3>
+                <h5 class="suite-filename">/test/unit/middleware/context.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="54f313e1-951e-4729-a0e4-eeffa0bcb017" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">0 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#54f313e1-951e-4729-a0e4-eeffa0bcb017-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="54f313e1-951e-4729-a0e4-eeffa0bcb017-test-list" class="list-group test-list collapse in">
+                        <div id="73de0994-9257-4218-9e88-d66ef4ffa92a" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should attach a default context to the request
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#73de0994-9257-4218-9e88-d66ef4ffa92a > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> req = {};
+                        <span class="hljs-keyword">var</span> res = {};
+                        <span class="hljs-keyword">var</span> next = sinon.spy();
+                        <span class="hljs-keyword">var</span> contextMiddleware = middleware.context();
+                        contextMiddleware(req, res, next);
+                        req.context.should.eql({userId: <span class="hljs-literal">null</span>});
+                        next.called.should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="00881ca9-6258-445d-aaac-be10d5bd703f" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The &#x60;user&#x60; middleware getter</h3>
+                <h5 class="suite-filename">/test/unit/middleware/user.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="00881ca9-6258-445d-aaac-be10d5bd703f" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">0 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#00881ca9-6258-445d-aaac-be10d5bd703f-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="00881ca9-6258-445d-aaac-be10d5bd703f-test-list" class="list-group test-list collapse in">
+                        <div id="e70dbbe6-d50e-4d57-b5ed-90071a2308b8" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should return a middleware function
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#e70dbbe6-d50e-4d57-b5ed-90071a2308b8 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> userMiddleware = middleware.user();
+                        userMiddleware.should.be.of.type(<span class="hljs-string">"function"</span>);
+                        userMiddleware.length.should.equal(<span class="hljs-number">3</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="798b8445-6e58-4929-8b73-5e2d25e0c43d" class="suite has-tests has-passed">
+                <h3 class="suite-title">Unit suite - The middleware function returned by the &#x60;user&#x60; middleware getter</h3>
+                <h5 class="suite-filename">/test/unit/middleware/user.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="798b8445-6e58-4929-8b73-5e2d25e0c43d" class="suite-chart" width="50" height="50" data-total-passes="3" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">1 ms</li>
+                    <li class="suite-summary-item tests">3</li>
+                    <li class="suite-summary-item passed">3</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#798b8445-6e58-4929-8b73-5e2d25e0c43d-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="798b8445-6e58-4929-8b73-5e2d25e0c43d-test-list" class="list-group test-list collapse in">
+                        <div id="7e00b32e-1f92-4813-be5e-890a9b285802" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should let the request through if it doesn&#x27;t have a &#x60;loginToken&#x60;
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#7e00b32e-1f92-4813-be5e-890a9b285802 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> userMiddleware = middleware.user();
+                        <span class="hljs-keyword">var</span> req = {body: {}};
+                        <span class="hljs-keyword">var</span> res = {};
+                        <span class="hljs-keyword">var</span> next = sinon.spy();
+                        userMiddleware(req, res, next);
+                        next.called.should.equal(<span class="hljs-literal">true</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="290db614-b98c-49aa-8dcf-f0c4f6a5206e" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should 401 if there&#x27;s an invalid &#x60;loginToken&#x60; (which doesn&#x27;t match any user)
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#290db614-b98c-49aa-8dcf-f0c4f6a5206e > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> userMiddleware = middleware.user({
+                            db: {
+                                collection: R.always({
+                                    findOne: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, cb)</span> </span>{
+                                        cb(<span class="hljs-literal">null</span>, <span class="hljs-literal">undefined</span>);
+                                    }
+                                })
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> req = {
+                            body: {
+                                loginToken: <span class="hljs-string">"invalid"</span>
+                            }
+                        };
+                        <span class="hljs-keyword">var</span> res = {
+                            status: sinon.spy(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> res;
+                            }),
+                            send: sinon.spy(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">var</span> err;
+                                <span class="hljs-keyword">try</span> {
+                                    res.status.calledWith(<span class="hljs-number">401</span>).should.equal(<span class="hljs-literal">true</span>);
+                                    res.send.called.should.equal(<span class="hljs-literal">true</span>);
+                                    res.send.calledWith({error: <span class="hljs-string">"Invalid loginToken"</span>}).should.equal(<span class="hljs-literal">true</span>);
+                                } <span class="hljs-keyword">catch</span> (e) {
+                                    err = e;
+                                }
+                                done(err);
+                            })
+                        };
+                        <span class="hljs-keyword">var</span> next = sinon.spy();
+                        userMiddleware(req, res, next);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="d6e6ee47-646b-401a-bbce-aaddc7025ac2" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              should let the request through and attach the user object to the context
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#d6e6ee47-646b-401a-bbce-aaddc7025ac2 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">0 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> userMiddleware = middleware.user({
+                            db: {
+                                collection: R.always({
+                                    findOne: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(selector, cb)</span> </span>{
+                                        cb(<span class="hljs-literal">null</span>, {_id: <span class="hljs-string">"userId"</span>});
+                                    }
+                                })
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> req = {
+                            body: {
+                                loginToken: <span class="hljs-string">"valid"</span>
+                            },
+                            context: {}
+                        };
+                        <span class="hljs-keyword">var</span> res = {};
+                        <span class="hljs-keyword">var</span> next = sinon.spy(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            <span class="hljs-keyword">var</span> err;
+                            <span class="hljs-keyword">try</span> {
+                                req.context.userId.should.equal(<span class="hljs-string">"userId"</span>);
+                                req.context.user.should.eql({_id: <span class="hljs-string">"userId"</span>});
+                                next.called.should.equal(<span class="hljs-literal">true</span>);
+                            } <span class="hljs-keyword">catch</span> (e) {
+                                err = e;
+                            }
+                            done(err);
+                        });
+                        userMiddleware(req, res, next);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="f587a75b-0e95-4a41-af4f-23fc9c58fbfa" class="suite has-tests has-passed">
+                <h3 class="suite-title">Integration suite - Bad requests</h3>
+                <h5 class="suite-filename">/test/integration/bad-requests.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="f587a75b-0e95-4a41-af4f-23fc9c58fbfa" class="suite-chart" width="50" height="50" data-total-passes="1" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">28 ms</li>
+                    <li class="suite-summary-item tests">1</li>
+                    <li class="suite-summary-item passed">1</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#f587a75b-0e95-4a41-af4f-23fc9c58fbfa-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="f587a75b-0e95-4a41-af4f-23fc9c58fbfa-test-list" class="list-group test-list collapse in">
+                        <div id="cb4437bf-3f99-4e78-a571-5fa31fc3054e" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              the server should reply a 400 on malformed body
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#cb4437bf-3f99-4e78-a571-5fa31fc3054e > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">28 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({unexpectedProp: <span class="hljs-string">"unexpectedValue"</span>})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">400</span>);</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="d2b71811-33f3-47fd-9cd7-357a2cb89746" class="suite has-tests has-passed">
+                <h3 class="suite-title">Integration suite - Methods</h3>
+                <h5 class="suite-filename">/test/integration/methods.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="d2b71811-33f3-47fd-9cd7-357a2cb89746" class="suite-chart" width="50" height="50" data-total-passes="8" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">74 ms</li>
+                    <li class="suite-summary-item tests">8</li>
+                    <li class="suite-summary-item passed">8</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#d2b71811-33f3-47fd-9cd7-357a2cb89746-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="d2b71811-33f3-47fd-9cd7-357a2cb89746-test-list" class="list-group test-list collapse in">
+                        <div id="acc381c0-7069-4910-91ad-34c8b3e1fa42" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that do not exist
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#acc381c0-7069-4910-91ad-34c8b3e1fa42 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">10 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"nonexistentMethod"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">404</span>)
+                            .expect({error: <span class="hljs-string">"Method not found"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="2fa4805a-9846-4df5-b6d0-bb5bb83cdfcf" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that return undefined
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#2fa4805a-9846-4df5-b6d0-bb5bb83cdfcf > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">3 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"return:value"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"return:value"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">200</span>)
+                            .expect({result: <span class="hljs-literal">null</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="58dd0e65-586b-4479-b403-2568a21b3eff" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that return a value
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#58dd0e65-586b-4479-b403-2568a21b3eff > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">3 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"return:value"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-string">"return:value"</span>;
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"return:value"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">200</span>)
+                            .expect({result: <span class="hljs-string">"return:value"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="ad774abd-8b75-44d8-85a9-cb1ddb99a88a" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that throw a MW.Error
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#ad774abd-8b75-44d8-85a9-cb1ddb99a88a > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">3 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"throw:mw-error"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> MW.Error(<span class="hljs-number">499</span>, <span class="hljs-string">"MW.Error"</span>);
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"throw:mw-error"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">499</span>)
+                            .expect({error: <span class="hljs-string">"MW.Error"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="73aa628c-f5ef-4144-a39b-8d40370d5d5d" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that throw a generic error
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#73aa628c-f5ef-4144-a39b-8d40370d5d5d > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">4 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"throw:generic-error"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Generic error"</span>);
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"throw:generic-error"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">500</span>)
+                            .expect({error: <span class="hljs-string">"Internal server error"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="5bb3b89d-c7c7-4f2e-8b45-767bf540905d" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that return a promise which is eventually resolved
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#5bb3b89d-c7c7-4f2e-8b45-767bf540905d > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">17 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"return:promise:resolved"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> </span>{
+                                    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        resolve(<span class="hljs-string">"return:promise:resolved"</span>);
+                                    }, <span class="hljs-number">10</span>);
+                                });
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"return:promise:resolved"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">200</span>)
+                            .expect({result: <span class="hljs-string">"return:promise:resolved"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="dc9bd7b5-e0d1-4f06-8b6c-594da745ed93" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that return a promise which is eventually rejected with an MW.Error
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#dc9bd7b5-e0d1-4f06-8b6c-594da745ed93 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">17 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"return:promise:rejected:mw-error"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> </span>{
+                                    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        reject(<span class="hljs-keyword">new</span> MW.Error(<span class="hljs-number">499</span>, <span class="hljs-string">"MW.Error"</span>));
+                                    }, <span class="hljs-number">10</span>);
+                                });
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"return:promise:rejected:mw-error"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">499</span>)
+                            .expect({error: <span class="hljs-string">"MW.Error"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="debe1d73-5850-488d-83df-dbb64da4ef9a" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              that return a promise which is eventually rejected with a generic error
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#debe1d73-5850-488d-83df-dbb64da4ef9a > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">17 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            <span class="hljs-string">"return:promise:rejected:generic-error"</span>: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> BPromise(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(resolve, reject)</span> </span>{
+                                    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                        reject(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">"Generic error"</span>));
+                                    }, <span class="hljs-number">10</span>);
+                                });
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"return:promise:rejected:generic-error"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">500</span>)
+                            .expect({error: <span class="hljs-string">"Internal server error"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+            <section class="suite-wrap">
+              <div id="ce31001f-2daa-407c-8d38-4755d4e1cb30" class="suite has-tests has-passed">
+                <h3 class="suite-title">Integration suite - User auth</h3>
+                <h5 class="suite-filename">/test/integration/user-auth.js</h5>
+                <!-- Suite Chart -->
+                <div class="suite-chart-wrap">
+                  <canvas id="ce31001f-2daa-407c-8d38-4755d4e1cb30" class="suite-chart" width="50" height="50" data-total-passes="4" data-total-failures="0" data-total-pending="0" data-total-skipped="0"></canvas>
+                </div>
+                <div class="suite-data-wrap">
+                  <!-- Suite Summary -->
+                  <ul class="suite-summary list-unstyled">
+                    <li class="suite-summary-item duration">16 ms</li>
+                    <li class="suite-summary-item tests">4</li>
+                    <li class="suite-summary-item passed">4</li>
+                    <li class="suite-summary-item failed">0</li>
+                    <li class="suite-summary-item pending">0</li>
+                  </ul>
+                  <!-- Test Info -->
+                  <div class="suite-test-wrap">
+                    <div class="suite-test-header" data-toggle="collapse" data-target="#ce31001f-2daa-407c-8d38-4755d4e1cb30-test-list">
+                      <h4 class="suite-test-header-title">Tests</h4>
+                    </div>
+                    <div id="ce31001f-2daa-407c-8d38-4755d4e1cb30-test-list" class="list-group test-list collapse in">
+                        <div id="daffb090-cd0f-4c59-a95b-f6b2fb963342" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              the server should auth the user if the loginToken is valid
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#daffb090-cd0f-4c59-a95b-f6b2fb963342 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">7 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            getUserId: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.userId;
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"getUserId"</span>, params: [], loginToken: <span class="hljs-string">"loginToken"</span>})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">200</span>)
+                            .expect({result: <span class="hljs-string">"userId"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="83502695-e60a-4a8c-8105-54484ff2c232" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              if the user is authenticated, methods should have available &#x60;this.userId&#x60; and &#x60;this.user&#x60;
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#83502695-e60a-4a8c-8105-54484ff2c232 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">1 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small">db.collection(<span class="hljs-string">"users"</span>).findOne({_id: <span class="hljs-string">"userId"</span>}, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">(err, user)</span> </span>{
+                            <span class="hljs-comment">// Stringify and parse to convert the Date object at `services.resume.loginTokens.when`</span>
+                            user = <span class="hljs-built_in">JSON</span>.parse(<span class="hljs-built_in">JSON</span>.stringify(user));
+                            <span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                            mw.methods({
+                                getUserIdAndUser: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                    <span class="hljs-keyword">return</span> [<span class="hljs-keyword">this</span>.userId, <span class="hljs-keyword">this</span>.user];
+                                }
+                            });
+                            <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                            <span class="hljs-keyword">return</span> request(app)
+                                .post(<span class="hljs-string">"/"</span>)
+                                .send({method: <span class="hljs-string">"getUserIdAndUser"</span>, params: [], loginToken: <span class="hljs-string">"loginToken"</span>})
+                                .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                                .expect(<span class="hljs-number">200</span>)
+                                .expect({result: [<span class="hljs-string">"userId"</span>, user]});
+                        });</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="a5d542ef-5cf9-42e8-807f-0e81eabdee87" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              the server should reply 403 if the loginToken is invalid
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#a5d542ef-5cf9-42e8-807f-0e81eabdee87 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">5 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            getUserId: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.userId;
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"getUserId"</span>, params: [], loginToken: <span class="hljs-string">"invalidLoginToken"</span>})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">401</span>)
+                            .expect({error: <span class="hljs-string">"Invalid loginToken"</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>            <div id="c2ccc59f-b386-4baa-ac62-ae3ec89e8cb1" class="list-group-item test passed">
+                          <!-- Test Heading -->
+                          <div class="test-heading">
+                            <h4 class="test-title">
+                              <span class="text-muted hidden"> it </span>
+                              the server should let requests without loginToken through
+                            </h4>
+                            <div class="pull-right">
+                              <button class="btn btn-link btn-sm toggle-btn toggle-code collapsed" data-toggle="collapse" data-target="#c2ccc59f-b386-4baa-ac62-ae3ec89e8cb1 > .test-code.collapse">Code</button>
+                              <span class="test-duration fast">3 ms</span>
+                            </div>
+                          </div>
+                          <!-- Test Errors -->
+                          <!-- Test Code -->
+                          <div class="test-code collapse">
+                            <pre><code class="hljs javascript small"><span class="hljs-keyword">var</span> mw = <span class="hljs-keyword">new</span> MW(db);
+                        mw.methods({
+                            getUserId: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+                                <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.userId;
+                            }
+                        });
+                        <span class="hljs-keyword">var</span> app = express().use(<span class="hljs-string">"/"</span>, mw.getRouter());
+                        <span class="hljs-keyword">return</span> request(app)
+                            .post(<span class="hljs-string">"/"</span>)
+                            .send({method: <span class="hljs-string">"getUserId"</span>, params: []})
+                            .expect(<span class="hljs-string">"Content-Type"</span>, <span class="hljs-regexp">/json/</span>)
+                            .expect(<span class="hljs-number">200</span>)
+                            .expect({result: <span class="hljs-literal">null</span>});</code></pre>
+                          </div>
+                          <!-- Test Error Stack -->
+                        </div>        </div>
+                  </div>
+                </div>
+            
+            
+              </div>
+            </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Report generated by <a href="https://github.dowjones.net/grubera/mochawesome" target="_blank">mochawesome</a>.<br>Designed and built by <a href="https://github.com/adamgruber" target="_blank">adamgruber</a>. &copy;2015.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/vendor.js"></script>
+    <script src="js/mochawesome.js"></script>
+  </body>
+</html>

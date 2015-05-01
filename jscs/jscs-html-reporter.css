@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    max-width: 1350px;
+    min-width: 800px;
+    margin: 20px auto;
+    background-color: #FEFEFE;
+}
+
+header {
+    background-color: rgb(102, 158, 4);
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+    font-family: monospace;
+    font-size: 20px;
+}
+
+header.error {
+    background-color: #DDDDDD;
+}
+
+.errors {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+}
+
+.errors .error {
+    padding: 8px;
+    margin-bottom: 5px;
+    font-family: monospace;
+    white-space: pre;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+.errors .error:nth-child(odd) {
+    background-color: #FAA9A9;
+}
+
+.errors .error:nth-child(even) {
+    background-color: #FC8C8C;
+}
+
+.errors .error:hover {
+    border-color: #666666;
+}
+
+.error .error-message {
+    margin-top: 10px;
+}
+
+.error .error-header {
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.error .file, .error .file a {
+    color: #000000;
+}
+
+.error .file a {
+    text-decoration: none;
+}
+
+.error .file a:hover {
+    color: #666666;
+}
+
+.error .file .error-location {
+    color: #666666;
+}
+
+.errors .error-number {
+    margin-right: 10px;
+}
+
+.hide {
+    display: none;
+}
